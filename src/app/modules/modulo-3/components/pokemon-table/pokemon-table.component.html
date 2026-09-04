@@ -1,0 +1,36 @@
+<div *ngIf="isLoading" class="loading-state my-3">
+  ⏳ Consultando información desde la PokéAPI...
+</div>
+
+<div *ngIf="errorMessage" class="error-state my-3 text-danger">
+  {{ errorMessage }}
+</div>
+
+<table class="table table-striped border" *ngIf="!isLoading && !errorMessage">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Pokémon</th>
+      <th scope="col">Tipos</th>
+      <th scope="col">Altura</th>
+      <th scope="col">Peso</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (p of pokemons; track p.id) {
+      <tr>
+        <th scope="row">#{{ p.id }}</th>
+        <td>
+          <app-pokemon-card [pokemon]="p"></app-pokemon-card>
+        </td>
+        <td>
+          <span *ngFor="let t of p.types" class="me-1">
+            <app-badge [text]="t.type.name" [type]="getTypeBadge(t.type.name)"></app-badge>
+          </span>
+        </td>
+        <td>{{ p.height / 10 }} m</td>
+        <td>{{ p.weight / 10 }} kg</td>
+      </tr>
+    }
+  </tbody>
+</table>
