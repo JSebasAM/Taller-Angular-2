@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  // ... rutas previas (modulo-1, modulo-2, etc.)
   {
     path: 'users',
     loadChildren: () => import('./modules/users/users-module').then(m => m.UsersModule)
@@ -11,9 +12,14 @@ const routes: Routes = [
     loadChildren: () => import('./modules/products/products-module').then(m => m.ProductsModule)
   },
   {
-    path: '**',
-    redirectTo: 'users'
+    path: 'modulo-3',
+    loadChildren: () => import('./modules/modulo-3/modulo-3-module').then(m => m.Modulo3Module)
   },
+  {
+    path: '',
+    redirectTo: 'modulo-3',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
