@@ -1,5 +1,16 @@
 import { PedidosData } from "../../modules/pedidos/interfaces/pedidos.interface";
 
+/**
+ * Listado de pedidos disponibles en el sistema.
+ *
+ * Esta constante simula una fuente de datos (mock) que representa
+ * información básica de pedidos, utilizada para:
+ * - Pruebas unitarias
+ * - Desarrollo sin backend
+ * - Ejercicios académicos
+ *
+ * @type {PedidosData[]}
+ */
 export const PEDIDOS_DATA: PedidosData[] = [
   {
     id: 1,
