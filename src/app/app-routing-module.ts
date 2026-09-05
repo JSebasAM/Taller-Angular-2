@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () => import('./modules/products/products-module').then(m => m.ProductsModule)
   },
+   {
+    path: 'pedidos',
+    loadChildren: () => import('./modules/pedidos/pedidos-module').then(m => m.PedidosModule)
+  },
   {
     path: '**',
     redirectTo: 'users'
