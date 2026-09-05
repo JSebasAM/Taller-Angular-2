@@ -1,0 +1,30 @@
+<table class="table table-striped border">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Total</th>
+            <th scope="col">Método Pago</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (order of pedidos; track order.id) {
+            <tr>
+                <th scope="row">{{ order.id }}</th>
+                <td>{{ order.customerName }}</td>
+                <td>{{ order.orderDate }}</td>
+                <td>{{ order.totalAmount | currency }}</td>
+                <td>{{ order.paymentMethod }}</td>
+                <td>
+                    <!-- Usamos statusMap en lugar de categoryMap -->
+                    <app-badge 
+                        [text]="order.status"
+                        [type]="statusMap[order.status]" >
+                    </app-badge>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
