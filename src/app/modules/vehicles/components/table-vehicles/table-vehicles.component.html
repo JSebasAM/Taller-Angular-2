@@ -1,0 +1,29 @@
+<table class="table table-striped border">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Marca</th>
+			<th scope="col">Modelo</th>
+			<th scope="col">Tipo</th>
+			<th scope="col">Año</th>
+			<th scope="col">Precio</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (vehicle of vehicles; track vehicle) {
+			<tr>
+				<th scope="row">{{ vehicle.id }}</th>
+				<td>{{ vehicle.brand }}</td>
+				<td>{{ vehicle.model }}</td>
+				<td>
+					<app-badge
+						[text]="vehicle.type"
+						[type]="typeMap[vehicle.type]">
+					</app-badge>
+				</td>
+				<td>{{ vehicle.year }}</td>
+				<td>{{ vehicle.price | currency }}</td>
+			</tr>
+		}
+	</tbody>
+</table>
