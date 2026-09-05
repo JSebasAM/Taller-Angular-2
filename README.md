@@ -65,6 +65,20 @@ El comando genera un sitio estático con la documentación del proyecto, incluye
 
 ```npm run compodoc```
 
+## 🌐 Consumo de APIs (Módulo 3)
+
+El **Módulo 3 (Pokédex)** realiza el consumo de datos en tiempo real mediante `HttpClient` utilizando la **[PokéAPI REST](https://pokeapi.co/)**.
+
+### Endpoints Utilizados:
+1. **Obtener listado de Pokémon**:
+   - **Método**: `GET`
+   - **URL**: `https://pokeapi.co/api/v2/pokemon?limit={limit}&offset={offset}`
+   - **Descripción**: Retorna una lista de Pokémon con su nombre y la URL para consultar el detalle de cada uno.
+2. **Obtener detalle del Pokémon**:
+   - **Método**: `GET`
+   - **URL**: `https://pokeapi.co/api/v2/pokemon/{id}` (o URL devuelta por la lista)
+   - **Descripción**: Devuelve la información detallada del Pokémon (ID, sprites, imágenes oficiales, tipos, altura y peso).
+
 ## ⚙️ Generación de Archivos con Angular CLI
 A continuación se presentan los comandos más utilizados para generar módulos y componentes.
 
